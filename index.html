@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Hug Day, Wifey 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#eef2f7,#dde3ec);
+  overflow:hidden;
+  transition:background 1.5s ease;
+}
+
+.container{
+  text-align:center;
+  width:90%;
+  max-width:420px;
+  position:relative;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  margin-bottom:20px;
+  color:#222;
+}
+
+.tap{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:#777;
+  margin-bottom:40px;
+}
+
+.heart{
+  font-size:48px;
+  position:absolute;
+  top:40%;
+  transform:translateY(-50%);
+  transition:all 2s cubic-bezier(.4,0,.2,1);
+}
+
+.left{
+  left:-60px;
+}
+
+.right{
+  right:-60px;
+}
+
+.move-left{
+  left:50%;
+  transform:translate(-120%, -50%);
+}
+
+.move-right{
+  right:50%;
+  transform:translate(120%, -50%);
+}
+
+.message{
+  margin-top:140px;
+  font-family:'Inter',sans-serif;
+  font-size:17px;
+  line-height:1.9;
+  color:#333;
+  opacity:0;
+  transition:opacity 2s ease;
+}
+
+.show{
+  opacity:1;
+}
+
+.warm{
+  background:linear-gradient(135deg,#fff3e0,#f6d9a6);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="scene">
+  <h1>Happy Hug Day, Wifey 🤍</h1>
+  <div class="tap">Tap anywhere</div>
+
+  <div class="heart left" id="heart1">🤍</div>
+  <div class="heart right" id="heart2">🤍</div>
+
+  <div class="message" id="text">
+    If I were standing in front of you right now,
+    I wouldn’t need to say a single word.
+
+    I would just step closer —
+    slowly —
+    until the space between us disappeared.
+
+    And when my arms wrapped around you,
+    you would feel how deeply you are loved,
+    how safely you are held,
+    and how certain I am about us.
+
+    Because hugging you wouldn’t just be comfort —
+    it would feel like home finding home.
+
+    Happy Hug Day, Wifey.
+  </div>
+</div>
+
+<script>
+let activated = false;
+
+document.getElementById("scene").addEventListener("click", function(){
+
+  if(activated) return;
+  activated = true;
+
+  document.getElementById("heart1").classList.add("move-left");
+  document.getElementById("heart2").classList.add("move-right");
+
+  setTimeout(()=>{
+    document.body.classList.add("warm");
+    document.getElementById("text").classList.add("show");
+  },2000);
+
+});
+</script>
+
+</body>
+</html>
